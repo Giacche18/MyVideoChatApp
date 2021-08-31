@@ -1,0 +1,19 @@
+{
+  "name": "myvideochatapp",
+  "version": "1.0.0",
+  "description": "My video chat app to keep people in touch :D",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Giacche18/MyVideoChatApp.git"
+  },
+  "author": "Giacchetti Filippo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Giacche18/MyVideoChatApp/issues"
+  },
+  "homepage": "https://github.com/Giacche18/MyVideoChatApp#readme"
+}
