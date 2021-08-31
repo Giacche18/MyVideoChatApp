@@ -28,4 +28,10 @@ app.get('/:room', (req, res) => {
 // When someone connects to the server
 io.on('connection', socket => {
 
+    // When someone attempts to join the room
+    socket.on('join-room', (roomId, userId) => {
+        socket.join(roomId)
+        socket.to(roomId).broadcast.emit('user-connected', userId);
+    })
+
 })
