@@ -51,8 +51,12 @@ navigator.mediaDevices.getUserMedia({
     socket.on("createMessage", message => {
         $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
         scrollToBottom()
-        
+
     })
+})
+
+socket.on('user-disconnected', userId => {
+    if (peers[userId]) peers[userId].close()
 })
 
 function addVideoStream(video, stream) {
