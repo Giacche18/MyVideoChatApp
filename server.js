@@ -10,5 +10,7 @@ const peerServer = ExpressPeerServer(server, {
   debug: true
 });
 
-app.set('view engine', 'ejs') // Tell Express we are using EJS
-pp.use(express.static('public')) // Tell express to pull the client script from the public folder
+app.use('/peerjs', peerServer);     // Setup peerJS server combined with express
+
+app.set('view engine', 'ejs');      // Tell Express we are using EJS
+pp.use(express.static('public'));   // Tell express to pull the client script from the public folder
