@@ -19,3 +19,8 @@ app.use(express.static('public'));   // Tell express to pull the client script f
 app.get('/', (req, res) => {
     res.redirect(`/${uuidV4()}`);
 })
+
+// If they join a specific room, then render that room
+app.get('/:room', (req, res) => {
+    res.render('room', { roomId: req.params.room });
+})
