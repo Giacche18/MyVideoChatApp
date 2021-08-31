@@ -27,16 +27,22 @@ app.get('/:room', (req, res) => {
 
 // When someone connects to the server
 io.on('connection', socket => {
-
     // When someone attempts to join the room
     socket.on('join-room', (roomId, userId) => {
         socket.join(roomId)                                         // Join the room
-        socket.to(roomId).broadcast.emit('user-connected', userId); // Tell everyone else in the room that we joined
-    })
+        socket.broadcast.to(roomId).emit('user-connected', userId); // Tell everyone else in the room that we joined
 
-    // Communicate the disconnection
-    socket.on('disconnect', () => {
-        socket.broadcast.emit('user-disconnected', userId)
+        // messages
+        socket.on('message', (message) => {
+            //send message to the same room
+            io.to(roomId).emit('createMessage', message)
+        }); 
+    
+
+        // Communicate the disconnection
+        socket.on('disconnect', () => {
+            socket.broadcast.emit('user-disconnected', userId)
+        })
     })
 })
 
