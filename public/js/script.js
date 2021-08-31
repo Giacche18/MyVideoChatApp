@@ -125,3 +125,12 @@ const setMuteButton = () => {
     `
     document.querySelector('.main__mute_button').innerHTML = html;
 }
+
+// Find the .main__mute_button element and setting up it to unmute after click
+const setUnmuteButton = () => {
+    const html = `
+      <i class="unmute fas fa-microphone-slash"></i>
+      <span>Unmute</span>
+    `
+    document.querySelector('.main__mute_button').innerHTML = html;
+  }
