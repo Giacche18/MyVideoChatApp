@@ -10,3 +10,4 @@ const myPeer = new Peer(undefined, {
 });
 
 const myVideo = document.createElement('video'); // Create a new video tag to show our video
+myVideo.muted = true; // Mute ourselves on our end so there is no feedback loop
