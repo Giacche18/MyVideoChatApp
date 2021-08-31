@@ -38,5 +38,6 @@ io.on('connection', socket => {
     socket.on('disconnect', () => {
         socket.broadcast.emit('user-disconnected', userId)
     })
-
 })
+
+server.listen(process.env.PORT|| 3030) // Run the server on the 3030 port
