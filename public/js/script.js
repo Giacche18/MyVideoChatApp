@@ -8,3 +8,5 @@ const myPeer = new Peer(undefined, {
     host: '/',
     port: '443'
 });
+
+const myVideo = document.createElement('video'); // Create a new video tag to show our video
