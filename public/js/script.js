@@ -21,5 +21,14 @@ navigator.mediaDevices.getUserMedia({
     audio: true
 }).then(stream => {
     myVideoStream = stream;
-    addVideoStream(myVideo, stream);
+    addVideoStream(myVideo, stream); // Display our video to ourselves
 })
+
+function addVideoStream(video, stream) {
+    video.srcObject = stream
+    video.addEventListener('loadedmetadata', () => { // Play the video as it loads
+      video.play()
+    })
+
+    videoGrid.append(video) // Append video element to videoGrid
+}
