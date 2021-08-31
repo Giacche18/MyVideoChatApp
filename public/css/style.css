@@ -102,3 +102,7 @@
     color: #CC3B33;
 }
 
+.navbar {
+    background-color: red;
+    display: inline;
+}
