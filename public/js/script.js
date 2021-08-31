@@ -64,6 +64,21 @@ myPeer.on('open', id => {
     socket.emit('join-room', ROOM_ID, id)
 })
 
+// This runs when someone joins our room
+function connectToNewUser(userId, stream) {
+    const call = myPeer.call(userId, stream) // Call the user who just joined
+    const video = document.createElement('video')
+    call.on('stream', userVideoStream => {
+      addVideoStream(video, userVideoStream)
+    })
+
+    call.on('close', () => {
+      video.remove()
+    })
+  
+    peers[userId] = call
+}
+
 function addVideoStream(video, stream) {
     video.srcObject = stream
     video.addEventListener('loadedmetadata', () => { // Play the video as it loads
