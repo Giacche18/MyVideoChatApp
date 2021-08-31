@@ -44,19 +44,24 @@ navigator.mediaDevices.getUserMedia({
     $('html').keydown(function (e) {
     if (e.which == 13 && text.val().length !== 0) {
         socket.emit('message', text.val());
-        text.val('')
+        text.val('');
         }
     });
 
     socket.on("createMessage", message => {
         $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
-        scrollToBottom()
-
+        scrollToBottom();
     })
 })
 
+// If a user disconnect
 socket.on('user-disconnected', userId => {
-    if (peers[userId]) peers[userId].close()
+    if (peers[userId]) peers[userId].close(); // close the call with the user if he disconnect
+})
+
+// When we first open the app, have us join a room
+myPeer.on('open', id => {
+    socket.emit('join-room', ROOM_ID, id)
 })
 
 function addVideoStream(video, stream) {
