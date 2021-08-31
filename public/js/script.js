@@ -133,4 +133,22 @@ const setUnmuteButton = () => {
       <span>Unmute</span>
     `
     document.querySelector('.main__mute_button').innerHTML = html;
-  }
+}
+
+// Find the .main__video_button element
+const setStopVideo = () => {
+    const html = `
+      <i class="fas fa-video"></i>
+      <span>Stop Video</span>
+    `
+    document.querySelector('.main__video_button').innerHTML = html;
+}
+
+// Find the .main__video_button element and setting up it to play video after click
+const setPlayVideo = () => {
+    const html = `
+    <i class="stop fas fa-video-slash"></i>
+      <span>Play Video</span>
+    `
+    document.querySelector('.main__video_button').innerHTML = html;
+} 
