@@ -88,3 +88,8 @@ function addVideoStream(video, stream) {
 
     videoGrid.append(video) // Append video element to videoGrid
 }
+
+const scrollToBottom = () => {
+    var d = $('.main__chat_window');
+    d.scrollTop(d.prop("scrollHeight"));
+}
