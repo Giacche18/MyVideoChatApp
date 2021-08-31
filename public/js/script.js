@@ -116,3 +116,12 @@ const playStop = () => {
       myVideoStream.getVideoTracks()[0].enabled = true;
     }
 }
+
+// Find the .main__mute_button element
+const setMuteButton = () => {
+    const html = `
+      <i class="fas fa-microphone"></i>
+      <span>Mute</span>
+    `
+    document.querySelector('.main__mute_button').innerHTML = html;
+}
