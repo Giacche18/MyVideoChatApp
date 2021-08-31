@@ -32,14 +32,17 @@
 }
 
 .main__controls {
-    color: #D2D2D2;
+    color: blue;
+    background-color: blue;
     display: flex;
     justify-content: space-between;
     padding: 5px;
 }
 
 .main__controls__block {
+    background-color: white;
     display: flex;
+    border-radius: 5px;
 }
 
 .main__controls__button {
@@ -94,10 +97,6 @@
     color: #F5F5F5;
 }
 
-.leave_meeting {
-    color: #EB534B;
-}
-
 .unmute, .stop {
     color: #CC3B33;
 }
@@ -108,6 +107,10 @@
 	margin:0;
 	padding:0;
     display: inline;
-    width: 30px;
-    height: 24px;
+}
+
+.navbar-brand {
+    font-style: italic;
+    font-size: 20px;
+    color: white;
 }
