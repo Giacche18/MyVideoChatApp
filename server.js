@@ -13,4 +13,9 @@ const peerServer = ExpressPeerServer(server, {
 app.use('/peerjs', peerServer);    
 
 app.set('view engine', 'ejs');      // Tell Express we are using EJS
-pp.use(express.static('public'));   // Tell express to pull the client script from the public folder
+app.use(express.static('public'));   // Tell express to pull the client script from the public folder
+
+// If they join the base link, generate a random UUID and send them to a new room with said UUID
+app.get('/', (req, res) => {
+    res.redirect(`/${uuidV4()}`);
+})
