@@ -72,6 +72,7 @@ function connectToNewUser(userId, stream) {
       addVideoStream(video, userVideoStream)
     })
 
+    // If they leave, remove their video
     call.on('close', () => {
       video.remove()
     })
