@@ -107,5 +107,7 @@
     list-style-type:none;
 	margin:0;
 	padding:0;
-    display: inline;
+    display: inline-block;
+    width: 30px;
+    height: 24px;
 }
