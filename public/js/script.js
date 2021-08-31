@@ -22,6 +22,20 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     myVideoStream = stream;
     addVideoStream(myVideo, stream); // Display our video to ourselves
+    
+    // When we join someone's room we will receive a call from them
+    myPeer.on('call', call => {
+        call.answer(stream)                             // Stream them our video/audio
+        const video = document.createElement('video')   // Create a video tag for them
+        call.on('stream', userVideoStream => {          // When we recieve their stream
+          addVideoStream(video, userVideoStream)        // Display their video to ourselves
+        })
+    })
+    
+    // If a new user connect
+    socket.on('user-connected', userId => {
+        connectToNewUser(userId, stream)
+    })
 })
 
 function addVideoStream(video, stream) {
