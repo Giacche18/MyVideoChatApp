@@ -9,3 +9,5 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
+
+app.set('view engine', 'ejs') // Tell Express we are using EJS
