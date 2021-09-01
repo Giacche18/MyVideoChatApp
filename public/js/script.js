@@ -1,5 +1,12 @@
 const socket = io('/'); // Create our socket
 
+let nickname;
+window.addEventListener("load", nicknameRequest)
+
+function nicknameRequest() {
+    nickname = window.prompt("Inserisci il tuo nickname");
+}
+
 const videoGrid = document.getElementById('video-grid'); // Find the Video-Grid element
 
 // Creating a peer element which represents the current user
@@ -33,7 +40,7 @@ navigator.mediaDevices.getUserMedia({
     })
     
     // If a new user connect
-    socket.on('user-connected', userId => {
+    socket.on('user-connected', (userId, nickname) => {
         connectToNewUser(userId, stream)
     })
 
@@ -48,8 +55,8 @@ navigator.mediaDevices.getUserMedia({
         }
     });
 
-    socket.on("createMessage", message => {
-        $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+    socket.on("createMessage", (message, nickname) => {
+        $("ul").append(`<li class="message"><b>${nickname}</b><br/>${message}</li>`);
         scrollToBottom();
     })
 })
@@ -61,7 +68,7 @@ socket.on('user-disconnected', userId => {
 
 // When we first open the app, have us join a room
 myPeer.on('open', id => {
-    socket.emit('join-room', ROOM_ID, id)
+    socket.emit('join-room', ROOM_ID, id, nickname)
 })
 
 // This runs when someone joins our room
