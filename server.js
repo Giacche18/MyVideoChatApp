@@ -30,12 +30,12 @@ io.on('connection', socket => {
     // When someone attempts to join the room
     socket.on('join-room', (roomId, userId, nickname) => {
         socket.join(roomId)                                         // Join the room
-        socket.broadcast.to(roomId).emit('user-connected', userId); // Tell everyone else in the room that we joined
+        socket.broadcast.to(roomId).emit('user-connected', (userId, nickname)); // Tell everyone else in the room that we joined
 
         // messages
         socket.on('message', (message, nickname) => {
             //send message to the same room
-            io.to(roomId).emit('createMessage', message, nickname)
+            io.to(roomId).emit('createMessage', (message, nickname))
         }); 
     
 
