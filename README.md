@@ -24,6 +24,7 @@ WebRTC insieme a PeerJS -> tecnologiache consente la comunicazione in tempo real
 
 # Heroku
 Il progetto è online su Heroku ed è stato chiamato "keep-in-touch".
+
 https://keep-in-touch-02.herokuapp.com/
 
 
