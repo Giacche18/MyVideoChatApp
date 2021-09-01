@@ -20,7 +20,7 @@ UUID -> un protocollo per la generazione di un identificatore univoco casuale.
 
 Socket.io -> utilizzato lato server per gestire la comunicazione tra gli utenti.
 
-WebRTC insieme a PeerJS -> tecnologiache consente la comunicazione in tempo reale (consente l'accesso ai dispositivi, quindi verrà utilizzato per condividere microfono e webcam).
+WebRTC insieme a PeerJS -> tecnologia che consente la comunicazione in tempo reale (consente l'accesso ai dispositivi, quindi verrà utilizzato per condividere microfono e webcam).
 
 # Heroku
 Il progetto è online su Heroku ed è stato chiamato "keep-in-touch".
